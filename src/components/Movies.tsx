@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 
-
 interface IMovie {
     name: string,
     genre: string,
@@ -13,7 +12,7 @@ const Movies = () => {
 
     useEffect(() => {
         // axios.get("https://still-mountain-45465.herokuapp.com/api/movies")
-        axios.get(`${process.env.API_URL}/api/movies`)
+        axios.get(`${process.env.REACT_APP_API_URL}/api/movies`)
         .then(resp => {
           console.log(resp)
           setMovies(resp.data)
