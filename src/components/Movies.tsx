@@ -12,7 +12,7 @@ const Movies = () => {
 
     useEffect(() => {
         // axios.get("https://still-mountain-45465.herokuapp.com/api/movies")
-        axios.get(`${process.env.REACT_APP_API_URL}/api/movies`)
+        axios.get(`${process.env.REACT_APP_API_URL}/api/v1/movies`)
         .then(resp => {
           console.log(resp)
           setMovies(resp.data)
