@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Form, FormGroup, Input, Label, Button } from 'reactstrap';
 import { useForm } from "../hooks/useForm";
 import axios from 'axios'
+import { useNavigate } from "react-router-dom";
 
 interface ILoginValues {
     email: string, 
@@ -9,6 +10,7 @@ interface ILoginValues {
 }
 
 function Login() {
+    const nav = useNavigate();
     // defining the initial state for the form
     const initialState: ILoginValues = {
         email: "",
@@ -31,7 +33,13 @@ function Login() {
                 password: password
             }
         })
-        .then(res => console.log(res))
+        .then(res => {
+            const token = res.headers.authorization && res.headers.authorization.split(' ')[1]
+            localStorage.setItem('token', token as string)
+            nav('/');
+            alert('Logged in;')
+        }
+        )
         .catch(err => console.log(err))
     }
 
