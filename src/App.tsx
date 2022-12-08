@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Movies from "./components/Movies"
+import { Container } from 'reactstrap';
+import Login from "./components/Login"
+
+interface MyFormValues {
+  firstName: string;
+}
 
 function App() {
+  const initialValues: MyFormValues = { firstName: '' };
   return (
-    <div className="App">
-      <Movies />
-    </div>
+    <Container>
+      <Login />
+    </Container>
   );
 }
 
