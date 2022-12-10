@@ -16,7 +16,7 @@ function Login() {
     const dispatch = useAppDispatch();
     const nav = useNavigate();
     // defining the initial state for the form
-    const initialState: ILoginValues = {
+    const initialLoginFormState: ILoginValues = {
         email: "",
         password: "",
     };
@@ -24,12 +24,11 @@ function Login() {
     // getting the event handlers from our custom hook
     const { onChange, onSubmit, values } = useForm(
         loginUserCallback,
-        initialState
+        initialLoginFormState
     );
 
     // a submit function that will execute upon form submission
     async function loginUserCallback() {
-        // console.log('values: ', values as ILoginValues)
         const { email, password } = values
         axios.post(`${process.env.REACT_APP_API_URL}/login`, {
             user: {
@@ -40,7 +39,7 @@ function Login() {
         .then(res => {
             const token = res.headers.authorization && res.headers.authorization.split(' ')[1]
             dispatch(login(token as string))
-            nav('/');
+            nav('/dashboard');
         })
         .catch(err => console.log(err))
     }

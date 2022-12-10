@@ -18,7 +18,7 @@ const Header = (props: any) => {
         })
         .then(() => {
             dispatch(logout())
-            nav('/login');
+            nav('/');
         })
         .catch(err =>{
           console.log(err)
@@ -27,10 +27,10 @@ const Header = (props: any) => {
     return (
         <ul className="App-header">  
             <li>  
-              <Link to="/login" onClick={onLogout}>Logout</Link>  
+              <Link to="/" onClick={onLogout}>Logout</Link>  
             </li>  
             <li>  
-              <Link to="/">Dashboard</Link>  
+              <Link to="/dashboard">Dashboard</Link>  
             </li>  
         </ul>  
 
