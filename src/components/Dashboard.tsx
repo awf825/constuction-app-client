@@ -12,8 +12,7 @@ const Dashboard = (props: any) => {
     useEffect(() => {
         axiosInstance.get(`/api/v1/projects`, {
             headers: {
-                Authorization: `Bearer ${jwt}`,
-                "Content-Type": "application-json"
+                Authorization: `Bearer ${jwt}`
             }
         })
         .then(resp => {
