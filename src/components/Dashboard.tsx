@@ -25,7 +25,7 @@ const Dashboard = (props: any) => {
 
     return (
         <div>
-            <h2>Welcome User #{user?.user_id}</h2>
+            <h2>Welcome {user?.name}</h2>
             {
                 projects?.map((project, i)=> {
                     return (
