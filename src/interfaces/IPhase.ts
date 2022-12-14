@@ -3,3 +3,7 @@ export interface IPhase {
     name: string, 
     project_id: number
 }
+
+// export interface IProcurablesByPhase {
+    
+// }
